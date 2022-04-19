@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ES-Schmidt/portfolio-website.git"
+  },
+  "author": "ES-Schmidt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ES-Schmidt/portfolio-website/issues"
+  },
+  "homepage": "https://github.com/ES-Schmidt/portfolio-website#readme"
+}
