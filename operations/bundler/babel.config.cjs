@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = function makeBabelConfig(api) {
 	return {
 		// preset ordering is last to first and they run after any plugins
@@ -7,7 +9,11 @@ module.exports = function makeBabelConfig(api) {
 			// corejs version must be set to the one included in `package.json`
 			[
 				'@babel/preset-env',
-				{ useBuiltIns: 'usage', corejs: '3.22.0', configPath: './browserslistrc' },
+				{
+					useBuiltIns: 'usage',
+					corejs: '3.22.0',
+					configPath: path.join(__dirname, './browserslistrc'),
+				},
 			],
 		],
 		...(api.env('development') ? { plugins: ['react-refresh/babel'] } : null),
