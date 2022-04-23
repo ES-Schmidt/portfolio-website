@@ -19,5 +19,7 @@ module.exports = {
 			version: 'detect',
 		},
 	},
-	rules: {},
+	rules: {
+		'require-jsdoc': 0,
+	},
 };
