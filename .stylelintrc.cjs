@@ -9,8 +9,9 @@ module.exports = {
 		'at-rule-no-unknown': [
 			true,
 			{
-				ignoreAtRules: ['tailwind'],
+				ignoreAtRules: ['tailwind', 'layer'],
 			},
 		],
+		'no-invalid-position-at-import-rule': null,
 	},
 };
