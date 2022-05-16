@@ -65,6 +65,10 @@ function makeWebpackConfig(env) {
 						},
 					},
 				},
+				{
+					test: /\.glsl$/i,
+					use: ['raw-loader', 'glslify-loader'],
+				},
 			],
 		},
 		resolve: {
