@@ -5,14 +5,14 @@ const path = require('path');
 
 module.exports = {
 	output: {
-		filename: 'main.bundle.[fullhash].js',
+		filename: '[name].bundle.[fullhash].js',
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			filename: 'main.bundle.[fullhash].html',
-			template: path.join(__dirname, '../../../src/main.html'),
+			filename: '[name].bundle.[fullhash].html',
+			template: path.join(__dirname, '../../../src/index.html'),
 		}),
-		new MiniCssExtractPlugin({ filename: 'main.bundle.[fullhash].css' }),
+		new MiniCssExtractPlugin({ filename: '[name].bundle.[fullhash].css' }),
 		new CompressionPlugin(),
 	],
 };

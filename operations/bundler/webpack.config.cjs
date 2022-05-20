@@ -9,10 +9,16 @@ function makeWebpackConfig(env) {
 
 	const defaults = {
 		mode: env,
-		entry: path.join(__dirname, '../../src/main.jsx'),
+		entry: {
+			index: path.join(__dirname, '../../src/index.jsx'),
+			scroll: path.join(__dirname, '../../src/plugins/overlayscrollbars/index.js'),
+		},
 		context: __dirname,
 		output: {
 			path: path.join(__dirname, '../../dist'),
+		},
+		resolve: {
+			extensions: ['.css', '.js', '.jsx'],
 		},
 		module: {
 			rules: [
@@ -70,9 +76,6 @@ function makeWebpackConfig(env) {
 					use: ['raw-loader', 'glslify-loader'],
 				},
 			],
-		},
-		resolve: {
-			extensions: ['.css', '.js', '.jsx'],
 		},
 	};
 

@@ -5,18 +5,16 @@ import vertexParticles from './shaders/vertexParticles.glsl';
 
 // TODO: see if `dat.gui` and `gsap` dependencies are of value
 
-export default function HeaderGraphic() {
+export default function Background(props) {
 	const graphicRef = useRef(null);
 	useEffect(() => {
-		new HeaderAnimation(graphicRef);
+		new BackgroundAnimation(graphicRef);
 	}, []);
-	return (
-		<div ref={graphicRef} className="min-h-[calc(100vh-3rem)] max-w-[calc(100%-61.8%)] grow"></div>
-	);
+	return <div ref={graphicRef} {...props}></div>;
 }
 
 // Animation Configuration
-class HeaderAnimation {
+class BackgroundAnimation {
 	constructor(mount) {
 		// configure container
 		this.container = mount.current;
@@ -34,8 +32,13 @@ class HeaderAnimation {
 		// attach rendrer to dom
 		this.container.appendChild(this.renderer.domElement);
 		// configure camera
-		this.camera = new THREE.PerspectiveCamera(70, this.width / this.height, 0.001, 1000);
-		this.camera.position.set(0, 0, 1.5);
+		this.camera = new THREE.PerspectiveCamera(
+			70,
+			window.innerWidth / window.innerHeight,
+			0.001,
+			1000
+		);
+		this.camera.position.set(0, 0, 3);
 		// configure time variable
 		this.time = 0;
 		this.addObjects();
@@ -70,7 +73,7 @@ class HeaderAnimation {
 		});
 		this.geometry = new THREE.IcosahedronBufferGeometry(1, 50);
 		this.plane = new THREE.Points(this.geometry, this.material);
-		this.plane.position.set(0.8, 0, 0);
+		// this.plane.position.set(0.8, 0, 0);
 		this.scene.add(this.plane);
 	}
 	render() {

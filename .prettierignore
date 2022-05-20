@@ -1,1 +1,4 @@
 dist
+src/plugins/overlayscrollbars/*
+!src/plugins/overlayscrollbars/index.js
+!src/plugins/overlayscrollbars/custom.css
